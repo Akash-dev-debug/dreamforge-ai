@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>DreamForge AI — Image Generator</title>
+
+
+    <!-- Google Font -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Main CSS -->
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         BACKGROUND
+         ===================================================== -->
+
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+
+
+    <!-- =====================================================
+         NAVBAR
+         ===================================================== -->
+
+    <header class="navbar">
+
+
+        <a
+            href="#create"
+            class="logo"
+        >
+
+            <span class="logo-mark">
+                ✦
+            </span>
+
+            DREAMFORGE
+
+        </a>
+
+
+
+        <nav>
+
+            <a href="#create">
+                Create
+            </a>
+
+            <a href="#gallery">
+                Explore
+            </a>
+
+            <a href="#features">
+                Features
+            </a>
+
+        </nav>
+
+
+
+        <div class="nav-actions">
+
+            <button
+                class="icon-btn nav-icon"
+                type="button"
+                title="Toggle light / dark mode"
+            >
+                ◐
+            </button>
+
+        </div>
+
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main>
+
+
+
+        <!-- =================================================
+             HERO
+             ================================================= -->
+
+        <section
+            class="hero"
+            id="create"
+        >
+
+
+
+            <!-- =================================================
+                 LEFT CONTENT
+                 ================================================= -->
+
+            <div class="hero-left">
+
+
+                <div class="eyebrow">
+
+                    <span></span>
+
+                    AI IMAGE CREATOR
+
+                </div>
+
+
+
+                <h1>
+
+                    Turn your
+                    <span>imagination</span>
+                    into reality.
+
+                </h1>
+
+
+
+                <p class="hero-text">
+
+                    Describe anything you can imagine and create
+                    beautiful AI artwork in seconds.
+
+                </p>
+
+
+
+                <!-- =================================================
+                     GENERATOR
+                     ================================================= -->
+
+                <div class="generator">
+
+
+
+                    <!-- HEADER -->
+
+                    <div class="generator-header">
+
+
+                        <div>
+
+                            <small>
+                                CREATE IMAGE
+                            </small>
+
+
+                            <h2>
+                                What do you want to create?
+                            </h2>
+
+                        </div>
+
+
+
+                        <div class="ready">
+
+                            <span></span>
+
+                            AI READY
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+                    <!-- =================================================
+                         PROMPT BOX
+                         ================================================= -->
+
+                    <div class="prompt-box">
+
+
+                        <textarea
+                            id="prompt"
+                            maxlength="1000"
+                            placeholder="Describe your image... e.g. A futuristic city floating above the clouds at sunset"
+                        ></textarea>
+
+
+
+                        <div class="prompt-footer">
+
+
+                            <span id="charCount">
+                                0 / 1000
+                            </span>
+
+
+
+                            <button
+                                id="enhanceBtn"
+                                type="button"
+                            >
+
+                                ✦ Enhance
+
+                            </button>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+                    <!-- =================================================
+                         GENERATE BUTTON
+                         ================================================= -->
+
+                    <button
+                        id="generateBtn"
+                        class="generate-btn"
+                        type="button"
+                    >
+
+
+                        <span>
+                            ✦
+                        </span>
+
+
+                        <span>
+                            Generate Image
+                        </span>
+
+
+                        <b>
+                            →
+                        </b>
+
+
+                    </button>
+
+
+
+                </div>
+
+
+
+
+                <!-- =================================================
+                     QUICK INFO
+                     ================================================= -->
+
+                <div class="quick-info">
+
+
+                    <span>
+                        ✦ Free Generation
+                    </span>
+
+
+                    <span>
+                        ◇ AI Powered
+                    </span>
+
+
+                    <span>
+                        ∞ Creative Freedom
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+            <!-- =================================================
+                 RIGHT VISUAL
+                 ================================================= -->
+
+            <div class="hero-right">
+
+
+                <div class="visual-card">
+
+
+                    <div class="visual-top">
+
+                        <span>
+                            AI CANVAS
+                        </span>
+
+
+                        <span>
+                            ● LIVE
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="art">
+
+
+                        <div class="sun"></div>
+
+
+                        <div class="mountain one"></div>
+
+
+                        <div class="mountain two"></div>
+
+
+                        <div class="floating-square"></div>
+
+
+                        <div class="scan"></div>
+
+
+                    </div>
+
+
+
+                    <div class="visual-bottom">
+
+
+                        <div>
+
+                            <small>
+                                AI GENERATED
+                            </small>
+
+
+                            <strong>
+                                Your next idea.
+                            </strong>
+
+                        </div>
+
+
+
+                        <div class="mini-ai">
+                            AI
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+                <!-- FLOATING CARD -->
+
+                <div class="floating-card card-a">
+
+
+                    <span>
+                        ✦
+                    </span>
+
+
+                    <div>
+
+                        <small>
+                            CREATIVE MODE
+                        </small>
+
+
+                        <strong>
+                            Unlimited Ideas
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- FLOATING CARD -->
+
+                <div class="floating-card card-b">
+
+
+                    <span>
+                        ◇
+                    </span>
+
+
+                    <div>
+
+                        <small>
+                            AI POWERED
+                        </small>
+
+
+                        <strong>
+                            Smart Generation
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+
+        <!-- =================================================
+             GALLERY
+             ================================================= -->
+
+        <section
+            class="gallery-section"
+            id="gallery"
+        >
+
+
+            <div class="section-title">
+
+
+                <div>
+
+
+                    <small>
+                        YOUR CREATIONS
+                    </small>
+
+
+                    <h2>
+
+                        Generated
+                        <span>images</span>
+
+                    </h2>
+
+
+                </div>
+
+
+
+                <button
+                    class="view-all-btn"
+                    type="button"
+                >
+
+                    View Gallery →
+
+                </button>
+
+
+            </div>
+
+
+
+
+            <!-- =================================================
+                 RESULT AREA
+                 ================================================= -->
+
+            <div
+                class="result-card"
+                id="resultArea"
+            >
+
+
+
+                <!-- EMPTY STATE -->
+
+                <div
+                    class="empty-state"
+                    id="emptyState"
+                >
+
+
+                    <div class="empty-icon">
+                        ✦
+                    </div>
+
+
+                    <h3>
+                        Your creations will appear here
+                    </h3>
+
+
+                    <p>
+                        Enter a prompt above and let your
+                        imagination take shape.
+                    </p>
+
+
+                </div>
+
+
+
+
+                <!-- LOADING STATE -->
+
+                <div
+                    class="loading-state hidden"
+                    id="loadingState"
+                >
+
+
+                    <div class="spinner"></div>
+
+
+                    <h3>
+                        Creating your image...
+                    </h3>
+
+
+                    <p id="loadingText">
+                        Sending your idea to the AI...
+                    </p>
+
+
+                </div>
+
+
+
+
+                <!-- CURRENT GENERATED IMAGE -->
+
+                <div
+                    class="result-state hidden"
+                    id="generatedResult"
+                >
+
+
+                    <img
+                        id="generatedImage"
+                        src=""
+                        alt="Generated AI artwork"
+                    >
+
+
+
+                    <div class="result-footer">
+
+
+                        <div>
+
+
+                            <small>
+                                YOUR CREATION
+                            </small>
+
+
+                            <h3 id="resultPrompt">
+                                Generated image
+                            </h3>
+
+
+                        </div>
+
+
+
+                        <a
+                            id="downloadBtn"
+                            href="#"
+                            download="dreamforge-image.webp"
+                        >
+
+                            ↓ Download
+
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+                <!-- =================================================
+                     SAVED GALLERY GRID
+                     ================================================= -->
+
+                <div
+                    class="gallery-grid"
+                    id="galleryGrid"
+                ></div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+
+        <!-- =================================================
+             FEATURES
+             ================================================= -->
+
+        <section
+            class="features-section"
+            id="features"
+        >
+
+
+            <div class="section-title centered">
+
+
+                <small>
+                    WHY DREAMFORGE
+                </small>
+
+
+                <h2>
+
+                    Built for
+                    <span>creators.</span>
+
+                </h2>
+
+
+                <p>
+
+                    Everything you need to turn simple ideas
+                    into beautiful AI artwork.
+
+                </p>
+
+
+            </div>
+
+
+
+
+            <div class="feature-grid">
+
+
+
+                <!-- FEATURE 1 -->
+
+                <article class="feature-card">
+
+
+                    <div class="feature-number">
+                        01
+                    </div>
+
+
+                    <div class="feature-icon">
+                        ✦
+                    </div>
+
+
+                    <h3>
+                        Simple Prompts
+                    </h3>
+
+
+                    <p>
+
+                        Describe what you want naturally
+                        and let AI do the rest.
+
+                    </p>
+
+
+                </article>
+
+
+
+
+                <!-- FEATURE 2 -->
+
+                <article class="feature-card">
+
+
+                    <div class="feature-number">
+                        02
+                    </div>
+
+
+                    <div class="feature-icon">
+                        ◇
+                    </div>
+
+
+                    <h3>
+                        AI Powered
+                    </h3>
+
+
+                    <p>
+
+                        Your prompt is transformed into
+                        a unique AI-generated image.
+
+                    </p>
+
+
+                </article>
+
+
+
+
+                <!-- FEATURE 3 -->
+
+                <article class="feature-card">
+
+
+                    <div class="feature-number">
+                        03
+                    </div>
+
+
+                    <div class="feature-icon">
+                        ∞
+                    </div>
+
+
+                    <h3>
+                        Creative Freedom
+                    </h3>
+
+
+                    <p>
+
+                        Experiment with ideas and create
+                        something different every time.
+
+                    </p>
+
+
+                </article>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer>
+
+
+        <div class="footer-logo">
+
+            ✦ DREAMFORGE
+
+        </div>
+
+
+        <p>
+
+            Create something extraordinary.
+
+        </p>
+
+
+        <span>
+
+            © 2026 DreamForge AI
+
+        </span>
+
+
+    </footer>
+
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script
+        src="{{ url_for('static', filename='script.js') }}"
+    ></script>
+
+
+</body>
+
+</html>
